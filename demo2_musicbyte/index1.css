@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+}  /* 星号代表通配符，表示了所有标签，所有标签的外部边距和内部边距都变0了，
+（重置）浏览器默认样式 ，删除浏览器这些默认值，方便后面的设置，不建议这样写，不利于性能*/
+body{
+    background: grey;
+} /* 标签选择器 */
+
+/* 主体居中 */
+.demo-music{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);/* 该属性允许我们对元素进行旋转、缩放、移动或倾斜。 */
+}
+
+.demo-music .waves{
+    height: 100px;
+    position: relative;
+    display: flex;/* Flex是Flexible Box的缩写，意为"弹性布局"，用来为盒状模型提供最大的灵活性。
+    任何一个容器都可以指定为Flex布局。设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。 */ 
+    transform: rotate(180deg);/* deg是角度 */
+}
+.demo-music .waves li{
+    list-style: none;
+    height: 200px;
+    width: 50px;
+    margin-right: 10px;
+    background-image: linear-gradient(90deg,#80d6ff,#f441a5,#ffed3b,#80d6ff);
+    background-size: 500%;
+
+}
+/* 制作动画 */
+.demo-music .waves .li1{
+    animation: waves 0.5s linear 0s infinite alternate;
+    /* 动画名称必须要有，执行一个周期时间，linear表示动画从头到尾的速度都是相同的
+    延迟时间，无限循环播放，表示动画在奇数次播放时为正向播放，为偶数次播放时为反向播放 */
+}
+.demo-music .waves .li2{
+    animation: waves 0.3s linear 0s infinite alternate;
+}
+.demo-music .waves .li3{
+    animation: waves 0.7s linear 0s infinite alternate;
+}
+.demo-music .waves .li4{
+    animation: waves 1s linear 0s infinite alternate;
+}
+.demo-music .waves .li5{
+    animation: waves 0.8s linear 0s infinite alternate;
+}
+/* 具体动画效果，5个阶段，进程100%表示动画完成 */
+@keyframes waves{
+    10%{
+        height: 20%;
+    }
+    20%{
+        height: 50%;
+        background-position: -100% 0;
+    }
+    40%{
+        height: 30%;
+    }
+    60%{
+        height: 25%;
+    }
+    100%{
+        height: 50%;
+    }
+}
